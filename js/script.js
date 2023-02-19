@@ -1,111 +1,97 @@
-let nombre = prompt("Ingrese su nombre o escriba SALIR para abandonar el sitio").toUpperCase();
-
-while (nombre != "SALIR"){
-    AgregarProducto()
-    AgregarCantidad()
-    AgregarCupon()
-    AgregarPago()
-
-    let continuar = prompt("Desea comprar algo mas? SI o NO").toUpperCase();
-    if (continuar = "NO"){
-        alert("gracias por visitarnos, esperamos que vuelvas pronto")
-        break;
+/* class Producto {
+    constructor (nombre, precio) {
+        this.id
+        this.nombre = nombre.toUpperCase();
+        this.precio = parseFloat (precio);
+        this.vendido = false;    
     }
-    else{}
+    
+    sumalva() {
+        this.precio = this.precio * 1.21;
+    }
 }
+    
+    //Declaramos un array de productos para almacenar objetos
+    const productos = [];
+    
+    productos.push (new Producto ("arroz", "125"));
+    productos.push (new Producto ("fideo", "70"));
+    productos.push (new Producto ("pan", "50"));
+    
+    //Iteramos el array con for...of para modificarlos a todos
+    for (const producto of productos)
+    
+    producto.sumalva ();
+
+    console.log(productos); */
 
 
-//seleccionar producto
-function AgregarProducto(){
-let producto = parseInt (prompt ("Bienvenido " + nombre + ", ¿Qué querés comprar hoy? \n Selecciona una opcion \n 1. Remera $7500 + IVA \n 2. Pantalon $14000 + IVA  \n 3. Zapatilla 25000 + IVA " ));
-switch (producto) {
-    default:
-        alert("No ingreso una opcion valida, intente nuevamente"); 
-        console.log("No ingreso una opcion valida, intente nuevamente"); 
-        AgregarProducto()
-        break;
-    case 1 :
-        PrecioProd = 7500 ;
-        alert("Ud selecciono remera");
-        console.log("Ud selecciono remera");
-        break;
-    case  2:
-        alert("Ud selecciono Pantalon");
-        console.log("Ud selecciono Pantalon");
-        PrecioProd = 14000 ;
-        break;
-    case 3 :
-        alert("Ud selecciono Zapatillas");
-        console.log("Ud selecciono Zapatillas");
-        PrecioProd = 25000 ;
-        break;
+
+/* class Producto {
+    constructor (nombre, precio) {
+        this.id
+        this.nombre = nombre.toUpperCase();
+        this.precio = parseFloat (precio);
+        this.vendido = false;    
     }
 }
 
+let input;
+let cont = [];
 
-//seleccionar Cantidad
-function AgregarCantidad(){
-let cantidad = parseInt (prompt ("Ingrese la cantidad que necesita" ));
-let precio = PrecioProd * cantidad;
-
-PrecioIva = precio * 1.21;
-    alert("Precio con IVA es $" + PrecioIva);
-    console.log("Precio con IVA es $" + PrecioIva); 
+while (input !== "stop") {
+  input = prompt("ingrese dato:");
+  if (input !== "stop") {
+    cont.push(input);
+  }
 }
 
+console.log(cont); */
 
 
-//seleccionar medio de pago
-function AgregarPago(){
-let pago = parseInt (prompt ("Selecciona una opcion para abonarlo\n 1. Efectivo -10% \n 2. Debito o transferencia  \n 3. Tarjeta de credito +25%"));
 
-switch (pago) {
-    default:
-        alert("No ingreso una opcion valida, intente nuevamente"); 
-        console.log("No ingreso una opcion valida, intente nuevamente"); 
-        AgregarPago() 
-        break;
-    case 1 :
-        Preciofinal = PrecioIva * 0.9 ;
-        alert("El precio final a abonar es de " + Preciofinal);
-        console.log("El precio final a abonar es de " + Preciofinal);
-        break;
-    case  2:
-        Preciofinal = PrecioIva ;
-        alert("El precio final a abonar es de " + Preciofinal);
-        console.log("El precio final a abonar es de " + Preciofinal);
-        break;
-    case 3 :
-        Preciofinal = PrecioIva * 1.25 ;
-        alert("El precio final a abonar es de $" + Preciofinal);
-        console.log("El precio final a abonar es de $" + Preciofinal);
-        break;
-}
+
+function datosProducto(){
+	
+	let nombre = prompt("Ingrese el nombre del producto:").toUpperCase();
+	let color = prompt("Ingrese el color");
+	var cantidad = parseInt(prompt("Ingrese la cantidad"));
+	let producto1 = new producto(nombre,color,cantidad);
+	producto1.mostrarDatos();
+    validar();
 }
 
+function producto (nombre,color,cantidad) {
+
+	this.nombre = nombre;
+	this.color = color;
+	this.cantidad = cantidad;
+
+	this.mostrarDatos = function () {
+		let msg = "Ha cargado un nuevo producto ";
+	    msg = msg + 'Los datos del producto cargado son  \n  - Nombre: ' + this.nombre + " \n  - color: " + this.color + "\n  - con un total de: " + this.cantidad + " unidades";
+
+	    console.log(msg);
+
+	};
+}
+
+/* const productos = [];
+let cant = 3;a
+productos.push (new producto(datosProducto())) */
+
+const productos = [];
+productos.push (new producto(datosProducto()));
 
 
-function AgregarCupon(){
-    let TieneCupon = parseInt (prompt ("Tienes algun cupon de descuento  \n 1. SI TENGO \n 2. NO TENGO"));
-    if (TieneCupon == 1){
-        let cupon = prompt("ingrese su cupon para verificar la validez").toUpperCase();
-        if (cupon == "50%OFF"){
-            alert("Cupon valido " );
-            console.log("Cupon valido");
-            PrecioIva = PrecioIva /2 ;
-        }
-        else{
-            alert("CUPON INVALIDO");
-        }
+function validar(){
+    let validar = prompt("quieres agregar algo mas?")
+    if (validar == "si" ){
+        datosProducto();
+    } 
+    else{
+        console.log("adios")
     }
-    else{}
 }
-
-function AgregarIva(){ 
-    PrecioIva = precio * 1.21;
-    alert("Precio con IVA es $" + PrecioIva);
-    console.log("Precio con IVA es $" + PrecioIva); 
-}
- 
 
 
