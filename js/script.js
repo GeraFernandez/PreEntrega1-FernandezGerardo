@@ -53,7 +53,7 @@ console.log(cont); */
 
 function datosProducto(){
 	
-	let nombre = prompt("Ingrese el nombre del producto:").toUpperCase();
+	let nombsre = prompt("Ingrese el nombre del producto:").toUpperCase();
 	let color = prompt("Ingrese el color");
 	var cantidad = parseInt(prompt("Ingrese la cantidad"));
 	let producto1 = new producto(nombre,color,cantidad);
